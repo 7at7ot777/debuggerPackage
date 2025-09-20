@@ -1,8 +1,9 @@
 <?php
 
-namespace MohamedHathout\Debugger;
+namespace MohamedHathout\Debugger\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use MohamedHathout\Debugger\DebuggerInterface;
 
 class Debugger extends Facade
 {

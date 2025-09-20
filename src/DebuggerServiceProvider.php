@@ -36,6 +36,7 @@ class DebuggerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         $this->publishes([
             __DIR__ . '/../config/debugger.php' => config_path('debugger.php'),
         ], 'debugger-config');
