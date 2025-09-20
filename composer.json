@@ -1,0 +1,72 @@
+{
+    "name": "mohamed-hathout/debugger",
+    "description": "A powerful Laravel debugging tool with real-time monitoring, query debugging, and variable inspection capabilities",
+    "keywords": [
+        "laravel",
+        "debug",
+        "debugging",
+        "debugger",
+        "livewire",
+        "development",
+        "monitoring"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Hathout",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^12.19",
+        "livewire/livewire": "^3.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^10.0",
+        "mockery/mockery": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "MohamedHathout\\Debugger\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MohamedHathout\\Debugger\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MohamedHathout\\Debugger\\DebuggerServiceProvider"
+            ],
+            "aliases": {
+                "Debugger": "MohamedHathout\\Debugger\\Facades\\Debugger"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/mohamed-hathout/debugger/issues",
+        "source": "https://github.com/mohamed-hathout/debugger"
+    }
+}
+
