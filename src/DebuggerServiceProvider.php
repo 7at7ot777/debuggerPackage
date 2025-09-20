@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Providers;
+namespace MohamedHathout\Debugger;
 
-use App\Debugger;
-use App\DebuggerInterface;
-use App\Http\Controllers\CacheDebugger;
-use App\Http\Controllers\DatabaseDebugger;
-use App\Http\Controllers\FileDebugger;
-use App\Http\Controllers\NullDebugger;
+use MohamedHathout\Debugger\Debugger;
+use MohamedHathout\Debugger\DebuggerInterface;
+use MohamedHathout\Debugger\Http\Controllers\CacheDebugger;
+use MohamedHathout\Debugger\Http\Controllers\DatabaseDebugger;
+use MohamedHathout\Debugger\Http\Controllers\FileDebugger;
+use MohamedHathout\Debugger\Http\Controllers\NullDebugger;
 use Illuminate\Support\ServiceProvider;
 
 class DebuggerServiceProvider extends ServiceProvider

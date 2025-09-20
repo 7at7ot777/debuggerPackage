@@ -3,10 +3,6 @@
 namespace MohamedHathout\Debugger\Livewire;
 
 use MohamedHathout\Debugger\Debugger;
-use MohamedHathout\Debugger\Models\Debug;
-use MohamedHathout\Debugger\Models\Text;
-use MohamedHathout\Debugger\Models\Number;
-use MohamedHathout\Debugger\Models\Json;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
