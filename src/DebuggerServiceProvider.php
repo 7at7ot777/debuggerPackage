@@ -2,8 +2,6 @@
 
 namespace MohamedHathout\Debugger;
 
-use MohamedHathout\Debugger\Debugger;
-use MohamedHathout\Debugger\DebuggerInterface;
 use MohamedHathout\Debugger\Http\Controllers\CacheDebugger;
 use MohamedHathout\Debugger\Http\Controllers\DatabaseDebugger;
 use MohamedHathout\Debugger\Http\Controllers\FileDebugger;
@@ -17,6 +15,8 @@ class DebuggerServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->mergeConfigFrom(__DIR__ . '/../config/debugger.php', 'debugger');
+
         $this->app->singleton(DebuggerInterface::class, function () {
             if (!config('debugger.is_enabled'))
             {
@@ -36,6 +36,20 @@ class DebuggerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->publishes([
+            __DIR__ . '/../config/debugger.php' => config_path('debugger.php'),
+        ], 'debugger-config');
+
+        // Example: publish migrations
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+        ], 'debugger-migrations');
+
+        // Example: publish views
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/debugger'),
+        ], 'debugger-views');
+
         if (
             !request()->is(config('debugger.route_name')) &&
             !request()->is('livewire/update') &&
